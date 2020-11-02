@@ -27,5 +27,6 @@ module.exports = {
   devServer: {
     // Serve index.html as the base
     contentBase: path.join(__dirname, 'public'),
+    historyApiFallback: true,
   },
 };
