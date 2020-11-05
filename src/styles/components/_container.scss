@@ -1,5 +1,6 @@
 .container {
-    max-width: 12em;
+    max-width: 120em;
     margin:0 auto;
     padding: 0 $m-size;
+    min-height: 100vh;
 }

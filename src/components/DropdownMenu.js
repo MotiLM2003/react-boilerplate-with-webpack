@@ -21,23 +21,31 @@ const hoverVariants = {
   },
 };
 
-const DropdownMenu = () => {
-  console.log('dropmenu');
+const DropdownMenu = (props) => {
   const [activeMenu, setActiveMenu] = useState('main');
   const [menuHeight, setMenuHeight] = useState(null);
-  useEffect(() => {
-    console.log('here');
-    document.addEventListener('click', () => () => {
+
+  const setDropdown = (e) => {
+    let el = e.target;
+    console.log('el', el.classList);
+    if (
+      el.classList.contains('menu-item') ||
+      el.classList.length === 0 ||
+      el.classList.contains('icon-button')
+    ) {
+      return;
+    } else {
       props.setCurrentDropdown(null);
-    });
+    }
+  };
+  useEffect(() => {
+    document.body.addEventListener('click', setDropdown);
+
     return () => {
-      document.removeEventListener('click', () => () => {
-        props.setCurrentDropdown(null);
-      });
+      document.body.removeEventListener('click', setDropdown);
     };
   }, []);
   const calcHeight = (el) => {
-    console.log('el', el);
     const height = el.offsetHeight;
 
     setMenuHeight(height);

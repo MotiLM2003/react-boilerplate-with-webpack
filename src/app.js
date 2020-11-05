@@ -14,38 +14,44 @@ import DropdownMenu from './components/DropdownMenu';
 
 const App = () => {
   const [currentDropdown, setCurrentDropdown] = useState(null);
+
   return (
-    <Navbar>
-      <NavItem icon={<PlusIcon />} />
-      <NavItem icon={<Bell />} />
-      <NavItem
-        icon={<Messenger />}
-        setCurrentDropdown={setCurrentDropdown}
-        currentDropdown={currentDropdown}
-        name='secondary'
-      >
-        <AnimatePresence exitBeforeEnter>
-          {currentDropdown === 'secondary' ? (
-            <DropdownMenu
-              name='secondary'
-              setCurrentDropdown={setCurrentDropdown}
-            />
-          ) : null}
-        </AnimatePresence>
-      </NavItem>
-      <NavItem
-        icon={<CaretIcon />}
-        name='main'
-        setCurrentDropdown={setCurrentDropdown}
-        currentDropdown={currentDropdown}
-      >
-        <AnimatePresence exitBeforeEnter>
-          {currentDropdown === 'main' ? (
-            <DropdownMenu name='main' setCurrentDropdown={setCurrentDropdown} />
-          ) : null}
-        </AnimatePresence>
-      </NavItem>
-    </Navbar>
+    <div className='container'>
+      <Navbar>
+        <NavItem icon={<PlusIcon />} />
+        <NavItem icon={<Bell />} />
+        <NavItem
+          icon={<Messenger />}
+          setCurrentDropdown={setCurrentDropdown}
+          currentDropdown={currentDropdown}
+          name='secondary'
+        >
+          <AnimatePresence>
+            {currentDropdown === 'secondary' ? (
+              <DropdownMenu
+                name='secondary'
+                setCurrentDropdown={setCurrentDropdown}
+              />
+            ) : null}
+          </AnimatePresence>
+        </NavItem>
+        <NavItem
+          icon={<CaretIcon />}
+          name='main'
+          setCurrentDropdown={setCurrentDropdown}
+          currentDropdown={currentDropdown}
+        >
+          <AnimatePresence>
+            {currentDropdown === 'main' ? (
+              <DropdownMenu
+                name='main'
+                setCurrentDropdown={setCurrentDropdown}
+              />
+            ) : null}
+          </AnimatePresence>
+        </NavItem>
+      </Navbar>
+    </div>
   );
 };
 
