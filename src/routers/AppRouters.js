@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import PageNotFound from '../components/PageNotFound';
-
-const temp = () => <p>Temperory component</p>;
+import App from '../App';
 
 const AppRouters = () => {
   return (
@@ -11,7 +10,7 @@ const AppRouters = () => {
       <div>
         <Header />
         <Switch>
-          <Route exact path='/' component={temp} />
+          <Route exact path='/' component={App} />
           <Route component={PageNotFound} />
         </Switch>
       </div>

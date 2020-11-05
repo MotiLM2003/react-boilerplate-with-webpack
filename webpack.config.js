@@ -2,7 +2,7 @@ const path = require('path');
 let absolutePath = path.join(__dirname, 'public');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/index.js',
   output: {
     path: absolutePath,
     filename: 'bundle.js',
@@ -20,6 +20,10 @@ module.exports = {
         test: /\.s?css$/,
 
         use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
       },
     ],
   },
